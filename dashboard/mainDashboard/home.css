@@ -1,0 +1,81 @@
+/* Style for main grid container */
+.mainTitleBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+}
+
+/* Style for each grid item (box) */
+.childMainTitleBox {
+    background-color: #111;
+    color: #ffcc00;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Make the Leaderboard span across all columns */
+.childMainTitleBox:nth-child(3) {
+    grid-column: span 1; /* Leaderboard spans 3 columns */
+}
+
+/* Adjust child elements */
+.childMainTitleBox i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.childMainTitleBox div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.childMainTitleBox div:nth-last-child(1) {
+    margin-left: 15px;
+}
+
+.childMainTitleH1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.childMainTitleP {
+    font-size: 1.2em;
+}
+
+i {
+    font-size: 2em;
+    color: #ffcc00;
+}
+
+strong {
+    font-size: 1.5em;
+    display: block;
+    color: #ffcc00;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+    .mainTitleBox {
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+    }
+    .childMainTitleBox:nth-child(3) {
+        grid-column: span 2; /* Leaderboard spans 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 900px) {
+    .mainTitleBox {
+        grid-template-columns: 1fr; /* 1 column */
+    }
+    .childMainTitleBox:nth-child(3) {
+        grid-column: span 1; /* Leaderboard spans 1 column on small screens */
+    }
+}

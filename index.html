@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="../global/fonts.css">
+    <link rel="stylesheet" href="../global/config.css">
+    <link rel="stylesheet" href="./globalMainPage/config.css">
+    <link rel="stylesheet" href="main.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="../database/database.js" defer></script>
+    <script type="module" src="../database/function.js" defer></script>
+    <script type="module" src="../database/logReg.js" defer></script>
+</head>
+
+<body>
+    <div class="overlay" id="overlay" onclick="toggleLoginPopUp()"></div>
+    <div class="loginPopUp" id="loginPopUp">
+        <div class="closeButton" onclick="toggleLoginPopUp()">&times;</div>
+        <span class="backgroudAnimate"></span>
+        <!-- <span class="backgroudAnimate2"></span> -->
+
+        <div class="formContent login">
+            <h2 class="animation" style="--i:0; --j:0">Log In</h2>
+            <form action="#">
+                <div class="inputBox animation" style="--i:1; --j:1">
+                    <input type="text" name="userId" id="userIdL" required>
+                    <label for="userId">Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="inputBox animation" style="--i:2; --j:2">
+                    <input type="password" name="userPassword" id="userPasswordL" required>
+                    <label for="userPassword">Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="submitButton animation" id="submitButtonLogin"
+                    style="--i:3; --j:3">Login</button>
+                <div class="logRegLink animation" style="--i:4; --j:4">
+                    <p>Don't have an account? <a href="#" class="registerLink animation">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="infoText login">
+            <h2 class="animation" style="--i:0; --j:0">Welcome Back!</h2>
+            <p class="animation" style="--i:1; --j:1">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+
+        <div class="formContent register">
+            <h2 class="animation" style="--i:0; --j:0">Sign Up</h2>
+            <form action="#">
+                <div class="inputBox animation" style="--i:1; --j:1">
+                    <input type="text" name="userId" id="userIdR" required>
+                    <label for="userId">Username</label>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="inputBox animation" style="--i:2; --j:2">
+                    <input type="email" name="email" id="emailR" required>
+                    <label for="userEmail">Email</label>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="inputBox animation" style="--i:3; --j:3">
+                    <input type="password" name="userPassword" id="userPasswordR" required>
+                    <label for="userPassword">Password</label>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="submitButton animation" id="submitButtonRegister" style="--i:4; --j:4">Sign
+                    Up</button>
+                <div class="logRegLink animation" style="--i:5; --j:0">
+                    <p>Already have an account? <a href="#" class="loginLink">Log In</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="infoText register">
+            <h2 class="animation" style="--i:0; --j:0">New to here?</h2>
+            <p class="animation" style="--i:1; --j:1">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        </div>
+    </div>
+    <section id="section1">
+        <header>
+            <p>ZOMBIE OUTBREAK</p>
+            <nav>
+                <ul>
+                    <li><a href="#" class="navItems">HOME</a></li>
+                    <li><a href="#" class="navItems">INFO</a></li>
+                    <li><a href="#" class="navItems">___</a></li>
+                    <!-- <button onclick="toggleLoginPopUp()" id="loginButton">LOGIN</button> -->
+                    <div class='dropdown'>
+                        <!-- <button>test</button> -->
+                        <i class='bx bxs-user-circle' ></i>
+                        <div class='dropdown-content'>
+                            <div class='user-info'>
+                                <p class='name'></p>
+                                <p class='email'></p>
+                            </div>
+                            <hr>
+                            <div class='user-content'>
+                                <div class='content'>
+                                    <!-- <a href='./dashboard/my-account.php' class='content-link'>
+                                        <i class='bx bxs-user' ></i>
+                                        <p>MY ACCOUNT</p>
+                                        <span>></span>
+                                    </a> -->
+                                    <!-- <a href='./dashboard/settings.php' class='content-link'>
+                                        <i class='bx bxs-cog' ></i>
+                                        <p>SETTINGS</p>
+                                        <span>></span>
+                                    </a> -->
+                                    <a href='../dashboard/mainDashboard/dashboard.html' class='content-link'>
+                                        <i class='bx bxs-dashboard' ></i>
+                                        <p>DASHBOARD</p>
+                                        <span>></span>
+                                    </a>
+                                    <!-- <a href='#' class='content-link'>
+                                        <i class='bx bxs-help-circle' ></i>
+                                        <p>HELP & SUPPORT</p>
+                                        <span>></span>
+                                    </a> -->
+                                </div>
+                                <hr>
+                                <div class='content-logout'>
+                                    <a href='includes/logout.inc.php' class='content-link'>
+                                        <i class='bx bx-log-out' ></i>
+                                        <p>LOGOUT</p>
+                                        <span>></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <p>HERE IS SOME TEXT</p>
+        </div>
+
+    </section>
+    <section>
+
+    </section>
+    <footer>
+
+    </footer>
+    <script src="../global/notification.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('load', () => {
+            });
+        });
+
+        document.body.addEventListener('keydown', function (e) {
+            if (e.key === "Escape" && document.getElementById("loginPopUp").classList.contains("active")) {
+                document.getElementById("loginPopUp").classList.toggle("active");
+                document.getElementById("loginButton").classList.toggle("active");
+                document.getElementById("overlay").classList.toggle("active");
+            }
+        })
+
+        function toggleLoginPopUp() {
+            document.getElementById("loginPopUp").classList.toggle("active");
+            document.getElementById("loginButton").classList.toggle("active");
+            document.getElementById("overlay").classList.toggle("active");
+        }
+
+        const wrapper = document.querySelector('.loginPopUp');
+        const registerLink = document.querySelector('.registerLink');
+        const loginLink = document.querySelector('.loginLink');
+
+        registerLink.onclick = () => {
+            wrapper.classList.add('change');
+        }
+
+        loginLink.onclick = () => {
+            wrapper.classList.remove('change');
+        }
+    </script>
+</body>
+
+</html>

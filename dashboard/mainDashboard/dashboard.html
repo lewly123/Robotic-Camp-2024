@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../global/fonts.css" defer>
+    <link rel="stylesheet" href="../../global/config.css" defer>
+    <link rel="stylesheet" href="../globalDashboard/dashboard.css" defer>
+    <script type="text/javascript" src="../globalDashboard/dashboard.js" defer></script>
+    <link rel="stylesheet" href="../globalDashboard/config.css" defer>
+    <link rel="stylesheet" href="./home.css" defer>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' defer>
+</head>
+<body>
+    <header class="sideBar">
+        <a href="../../index.html" class="zombieOutbreak">
+            <i class='bx bxl-graphql'></i>
+            <span class="textTitle">Zombie Outbreak</span>
+        </a>
+        <ul class="sideMenu top">
+            <li class="dashboard">
+                <a href="">
+                    <i class='bx bxs-home'></i>
+                    <span class="textContent">Home</span>
+                </a>
+            </li>
+            <li class="leaderboard">
+                <a href="">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="textContent">Leaderboard</span>
+                </a>
+            </li>
+            <li class="chart">
+                <a href="">
+                    <i class='bx bx-line-chart'></i>
+                    <span class="textContent">Chart</span>
+                </a>
+            </li>
+            <li class="logs">
+                <a href="">
+                    <i class='bx bxs-file'></i>
+                    <span class="textContent">Logs</span>
+                </a>
+            </li>
+            <li class="maps">
+                <a href="">
+                    <i class='bx bxs-map'></i>
+                    <span class="textContent">Maps</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="sideMenu bottom">
+            <li class="settings">
+                <a href="">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="textContent">Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="textContent">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </header>
+    <section id="content">
+        <!-- Nav Bar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <button id="themeSwitch">
+                <i class='bx bxs-moon' ></i>
+                <i class='bx bxs-sun' ></i>
+            </button>
+            <div class='dropdown'>
+                <!-- <button>test</button> -->
+                <i class='bx bxs-user-circle' ></i>
+                <div class='dropdown-content'>
+                    <div class='user-info'>
+                        <p class='name'></p>
+                        <p class='email'></p>
+                    </div>
+                    <hr>
+                    <div class='user-content'>
+                        <div class='content'>
+                            <!-- <a href='./dashboard/my-account.php' class='content-link'>
+                                <i class='bx bxs-user' ></i>
+                                <p>MY ACCOUNT</p>
+                                <span>></span>
+                            </a> -->
+                            <!-- <a href='./dashboard/settings.php' class='content-link'>
+                                <i class='bx bxs-cog' ></i>
+                                <p>SETTINGS</p>
+                                <span>></span>
+                            </a> -->
+                            <a href='./dashboard/dashboard.php' class='content-link'>
+                                <i class='bx bxs-dashboard' ></i>
+                                <p>DASHBOARD</p>
+                                <span>></span>
+                            </a>
+                            <!-- <a href='#' class='content-link'>
+                                <i class='bx bxs-help-circle' ></i>
+                                <p>HELP & SUPPORT</p>
+                                <span>></span>
+                            </a> -->
+                        </div>
+                        <hr>
+                        <div class='content-logout'>
+                            <a href='includes/logout.inc.php' class='content-link'>
+                                <i class='bx bx-log-out' ></i>
+                                <p>LOGOUT</p>
+                                <span>></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <h1>Welcome to Zombie Outbreak</h1>
+            <h4>This mainly just for robotic camp only.</h4>
+            <div class="mainTitleBox">
+                <div class="childMainTitleBox">
+                    <div>
+                        <span>
+                            <i class='bx bxs-user' ></i>
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="childMainTitleH1">Charactor</h2>
+                        <strong class="childMainTitleP">Human</strong>
+                    </div>
+                </div>
+                <div class="childMainTitleBox">
+                    <div>
+                        <span>
+                            <i class='bx bx-coin' ></i>
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="childMainTitleH1">Coins</h2>
+                        <strong class="childMainTitleP">300</strong>
+                    </div>
+                </div>
+                <div class="childMainTitleBox">
+                    <div>
+                        <span>
+                            <i class='bx bxs-bar-chart-alt-2' ></i>
+                        </span>
+                    </div>
+                    <div>
+                        <h2 class="childMainTitleH1">Leaderboard</h2>
+                        <strong class="childMainTitleP">Top 1</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+</body>
+</html>

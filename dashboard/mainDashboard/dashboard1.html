@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../global/config.css" id="rel">
+    <link rel="stylesheet" href="../global/media.css" id="rel">
+    <link rel="stylesheet" href="../global/sidebar.css" id="rel">
+    <link rel="stylesheet" href="../global/navbar.css" id="rel">
+    <link rel="stylesheet" href="../global/breadcrumbs.css" id="rel">
+    <link rel="stylesheet" href="../global/database.css" id="rel"> <!-- CHANGE -->
+    <title>Dashboard</title> <!-- CHANGE -->
+</head>
+
+<body class="">
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="../index.php" class="company-name">
+            <ion-icon name="aperture"></ion-icon>
+            <span class="text">Company</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="dashboard">
+                <a href="dashboard.php">
+                    <ion-icon name="grid"></ion-icon>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="todo-list">
+                <a href="todo-list.php">
+                    <ion-icon name="clipboard"></ion-icon>
+                    <span class="text">Todo-List</span>
+                </a>
+            </li>
+            <li class="study">
+                <a href="study.php">
+                    <ion-icon name="book"></ion-icon>
+                    <span class="text">Study</span>
+                </a>
+            </li>
+            <li class="curriculum">
+                <a href="curriculum.php">
+                    <ion-icon name="add-circle"></ion-icon>
+                    <span class="text">Curriculum</span>
+                </a>
+            </li>
+            <li class="page-5">
+                <a href="page-5.php">
+                    <ion-icon name="add-circle"></ion-icon>
+                    <span class="text">Page-5</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li class="settings">
+                <a href="settings.php">
+                    <ion-icon name="settings"></ion-icon>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="../includes/logout.inc.php">
+                    <ion-icon name="log-out"></ion-icon>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <ion-icon name="menu" class="menu"></ion-icon>
+            <a href="#" class="nav-link">Categories</a>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><ion-icon name="search"></ion-icon></button>
+                </div>
+            </form>
+            <ion-icon name="sunny" class="dark-light-mode"></ion-icon>
+            <a href="#" class="notification">
+                <ion-icon name="notifications"></ion-icon>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="../image/pfp.jpg">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <!-- BREADCRUMBS -->
+            <div class="head-title">
+                <div class="left">
+                    <h1>Database</h1>
+                    <ul class="breadcrumbs">
+                        <li class="dashboard">
+                            <a href="#">Dashboard</a>
+                        </li>
+                        <li>
+                            <ion-icon name="chevron-forward"></ion-icon>
+                        </li>
+                        <li>
+                            <a href="dashboard.php" class="dashboard">Home</a>
+                        </li>
+                        <li>
+                            <ion-icon name="chevron-forward"></ion-icon>
+                        </li>
+                        <li>
+                            <a href="curriculum.php" class="curriculum">Curriculum</a>
+                        </li>
+                        <li>
+                            <ion-icon name="chevron-forward"></ion-icon>
+                        </li>
+                        <li>
+                            <a href="stjohn.php" class="stjohn">St John</a>
+                        </li>
+                        <li>
+                            <ion-icon name="chevron-forward"></ion-icon>
+                        </li>
+                        <li>
+                            <a href="canteen-day.php" class="stjohn">Canteen Day 2024</a>
+                        </li>
+                        <li>
+                            <ion-icon name="chevron-forward"></ion-icon>
+                        </li>
+                        <li>
+                            <a href="database.php" class="stjohn">Database</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BREADCRUMBS -->
+            <div class="content">
+                <!-- <form action="../includes/canteen-day-rewards.inc.php" method="post" class="rewards">
+                    <label for="rewards" class="rewards">Add Rewards</label>
+                    <input type="radio" name="reward" value="small" id="small">Small
+                    <input type="radio" name="reward" value="middle" id="mid">Middle
+                    <input type="radio" name="reward" value="large" id="large">Large
+                    <input type="submit" value="Submit">
+                </form> -->
+                <form action="../includes/canteen-day-search.inc.php" method="post" class="search">
+                    <label for="search-uid">Search Marks</label><br>
+                    <input type="text" name="search-uid">
+                    <button type="submit">Search</button>
+                </form>
+
+                <?php
+                    if ($user) {
+                        echo "<div class='output'>
+                            <p class='UID'>UID: " . htmlspecialchars($user['username']) . "</p>
+                            <p class='HP'>HP: " . htmlspecialchars($user['phone']) . "</p>
+                            <p class='MARKS'>MARKS: " . htmlspecialchars($user['marks']) . " Marks</p>
+                            <p class='REWARDS'>Claimed reward: " . htmlspecialchars($user['rewards']) . "</p>
+                        </div>";
+                    } else {
+                        echo "<div class='output'>
+                            <p class='UID'>UID: Not found</p>
+                            <p class='HP'>HP: Not available</p>
+                            <p class='MARKS'>MARKS: 0 Marks</p>
+                            <p class='REWARDS'>Claimed reward: None</p>
+                        </div>";
+                    }
+                ?>
+
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="./js/canteen-day.js"></script> <!-- CHANGE -->
+    <script>
+        document.querySelector('.search').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var searchUid = document.querySelector('input[name="search-uid"]').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'canteen-day-search.inc.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.error) {
+                        console.error(response.error);
+                    } else {
+                        document.querySelector('.output .UID').textContent = 'UID: ' + (response.username || 'Not found');
+                        document.querySelector('.output .HP').textContent = 'HP: ' + (response.phone || 'Not available');
+                        document.querySelector('.output .MARKS').textContent = 'MARKS: ' + (response.marks || '0') + ' Marks';
+                        document.querySelector('.output .REWARDS').textContent = 'Claimed reward: ' + (response.rewards || 'None');
+                    }
+                } else {
+                    console.error('Error: ' + xhr.status);
+                }
+            };
+
+            xhr.send('search-uid=' + encodeURIComponent(searchUid));
+        });
+    </script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/breadcrumbs.js"></script>
+    <script src="./js/loader.js"></script>
+</body>
+
+</html>

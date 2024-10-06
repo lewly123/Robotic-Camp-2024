@@ -1,0 +1,566 @@
+/* video#mainPage1 {
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+} */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Login Pop Up */
+.loginPopUp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 750px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid var(--hBorderColor);
+    z-index: 2;
+    text-align: center;
+    /* padding: 20px; */
+    box-sizing: border-box;
+    box-shadow: 0 0 25px var(--hBorderColor);
+    overflow: hidden;
+    font-family: var(--poppins);
+}
+
+.loginPopUp .formContent {
+    position: absolute;
+    top: 0px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginPopUp .formContent.login {
+    left: 0;
+    padding: 0 40px 0 60px;
+}
+
+.loginPopUp .formContent.login .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+    transition-delay: calc(2s + (.1s * var(--j)));
+}
+
+.loginPopUp.change .formContent.login .animation {
+    transform: translateX(-130%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.loginPopUp .formContent.register {
+    right: 0;
+    padding: 0 60px 0 40px;
+    pointer-events: none;
+}
+
+.loginPopUp.change .formContent.register {
+    pointer-events: auto;
+}
+
+.loginPopUp .formContent.register .animation {
+    transform: translateX(130%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.loginPopUp.change .formContent.register .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(1.7s + (.1s * var(--i)));
+}
+
+.formContent h2 {
+    font-size: var(--32px);
+    color: var(--colorWhite);
+    text-align: center;
+}
+
+.formContent .inputBox {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.inputBox input {
+    padding-right: 23px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--colorWhite);
+    font-size: var(--16px);
+    font-weight: 500;
+    color: var(--colorWhite);
+    transition: .5s;
+}
+
+.inputBox input:focus,
+.inputBox input:valid {
+    border-bottom-color: var(--hBorderColor);
+}
+
+.inputBox label {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    font-size: var(--16px);
+    color: var(--colorWhite);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputBox input:focus~label,
+.inputBox input:valid~label {
+    top: -5px;
+    color: var(--hText);
+}
+
+.inputBox i {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    font-size: var(--18px);
+    color: var(--colorWhite);
+    transition: .5s;
+}
+
+.inputBox input:focus ~ i,
+.inputBox input:valid ~ i {
+    color: var(--hText);
+}
+
+.submitButton {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid var(--hBorderColor);
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: var(--16px);
+    color: var(--colorWhite);
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(#081b29, var(--hBorderColor), #081b29, var(--hBorderColor));
+    z-index: -1;
+    transition: .5s;
+}
+
+.submitButton:hover::before {
+    top: 0;
+}
+
+.formContent .logRegLink {
+    font-size: 0.906rem; /* 14.5px */
+    color: var(--colorWhite);
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.logRegLink p a {
+    color: var(--hBorderColor);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logRegLink p a:hover {
+    text-decoration: underline;
+}
+
+.loginPopUp .infoText {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.loginPopUp .infoText.login {
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+    pointer-events: none;
+}
+
+.loginPopUp .infoText.login .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+    transition-delay: calc(2s + (.1s * var(--j)));
+}
+
+.loginPopUp.change .infoText.login .animation {
+    transform: translateX(130%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.loginPopUp .infoText.register {
+    left: 0;
+    text-align: left;
+    padding: 0 150px 60px 40px;
+    pointer-events: none;
+}
+
+.loginPopUp.change .infoText.register {
+    pointer-events: auto;
+}
+
+.loginPopUp .infoText.register .animation {
+    transform: translateX(-130%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.loginPopUp.change .infoText.register .animation {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(1.7s + (.1s * var(--i)));
+}
+
+.infoText h2 {
+    font-size: var(--36px);
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.infoText p {
+    font-size: var(--16px);
+    color: var(--colorWhite);
+}
+
+.loginPopUp .backgroudAnimate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1500px;
+    height: 1800px;
+    background: linear-gradient(45deg, #081b29, var(--hBorderColor));
+    border-bottom: 3px solid var(--hBorderColor);
+    transform:  translate(5%, -50%) rotate(10deg) skewY(50deg);
+    transform-origin: bottom right;
+    z-index: -1;
+    transition: 1.5s ease;
+    transition-delay: 1.6s;
+}
+
+.loginPopUp.change .backgroudAnimate {
+    transform: translate(45%, -50%) rotate(-10deg) skewY(-50deg);
+    transform-origin: bottom left;
+    transition-delay: .5s;
+    z-index: -1;
+}
+
+/* .loginPopUp .backgroudAnimate2 {
+    position: absolute;
+    top: 100%;
+    left: 250px;
+    width: 850px;
+    height: 700px;
+    background: transparent;
+    border-top: 3px solid var(--hBorderColor);
+    transform: rotate(0) skewY(0);
+    transform-origin: bottom right;
+    z-index: -1;
+    transition: 1.5s ease;
+    transition-delay: .5s;
+}
+
+.loginPopUp.change .backgroudAnimate2 {
+    transform: rotate(-11deg) skewY(-41deg);
+    transition-delay: 1.2s;
+    z-index: -1;
+} */
+
+.loginPopUp .closeButton {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: var(--colorBlack);
+    color: var(--colorWhite);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.loginPopUp.active {
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+/* Background */
+section#section1 {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+    background-image: var(--mainPage1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Nav Bar */
+header {
+    position: fixed;
+    display: flex;
+    padding: 20px 70px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--shadowColor);
+    z-index: 99;
+    user-select: none;
+    font-family: "CurseOfTheZombie";
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+header p {
+    font-size: var(--24px);
+    font-weight: 500;
+    color: var(--colorWhite);
+    margin-right: 0;
+}
+
+nav li {
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+    font-size: var(--20px);
+    font-weight: 500;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--colorWhite) ;
+}
+
+nav a.navItems::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: var(--colorWhite);
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+nav a:hover::after {
+    transform-origin: left;
+    transform: scaleX(100%);
+}
+
+nav button {
+    margin-left: auto;
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--colorWhite);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: var(--20px);
+    color: var(--colorWhite);
+    transition: .5s;
+    font-family: "CurseOfTheZombie";
+}
+
+nav button:hover,
+nav button.active {
+    background-color: var(--colorWhite);
+    color: var(--colorBlack);
+}
+
+/* Dropdown */
+.dropdown {
+    user-select: none;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: var(--colorWhite);
+}
+
+.dropdown i{
+    display: flex;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    font-size: var(--32px);
+    user-select: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    padding: 10px;
+    width: 320px;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    background-color: var(--shadowColor);
+    top: 100%;
+    right: 0%;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+}
+
+.dropdown-content .user-info{
+    user-select: text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-content .user-info .name{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.dropdown-content .user-info .email{
+    font-size: .8em;
+    font-weight: 300;
+    color: var(--dark-grey);
+}
+
+.dropdown-content hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--colorWhite);
+    margin: 10px 0 10px;
+}
+
+.dropdown-content .user-content .content-link{
+    padding: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light);
+    margin: 12px 0;
+}
+
+.dropdown-content .user-content .content-link i{
+    width: 40px;
+    height: 30px;
+    padding: 4px;
+    margin-right: 15px;
+}
+
+.dropdown-content .user-content .content-link span{
+    font-size: var(--20px);
+    transition: transform .5s ease-in-out;
+    padding-right: 10px;
+    font-family: var(--poppins);
+}
+
+.dropdown-content .user-content .content-link:hover span{
+    transform: translateX(10px);
+}
+
+.dropdown-content .user-content .content-link p{
+    width: 100%;
+    font-size: var(--20px);
+    font-family: var(--CurseOfTheZombie);
+}
+
+.dropdown-content .user-content .content-link:hover p{
+    font-weight: 600;
+}
+
+.dropdown-content .content-logout .content-link{
+    color: var(--colorRed);
+}
+
+.dropdown-content .content-logout .content-link span{
+    color: var(--colorRed);
+    font-family: var(--poppins);
+}
+
+.dropdown-content .content-logout .content-link p{
+    color: var(--colorRed);
+}

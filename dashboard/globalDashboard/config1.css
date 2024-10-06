@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&family=Montserrat&display=swap');
+
+:root{
+    --poppins: 'Poppins', sans-serif;
+    --lato: 'Lato', sans-serif;
+    --montserrat: 'Montserrat', sans-serif;
+
+    --light: #F9F9F9;
+    --light-dark: #E2E2E2;
+    --black: #181717;
+    --blue: #3C91E6;
+    --light-blue: #CFE8FF;
+    --grey: #EEEEEE;
+    --grey-dark: #dddddd;
+    --dark-grey: #696969;
+    --dark: #342E37;
+    --red: #DB504A;
+    --yellow: #FFCE26;
+    --light-yellow: #FFF2C6;
+    --orange: #FD7238;
+    --light-orange: #FFE0D3;
+
+    --red: #DB504A;
+
+    --background-color: #ffffff;
+    --secondary-background-color: #e0e0e0; 
+    --text-color-1: #000000;
+    --text-color-2: #ffffff;
+    --icon-color-1: #333333;
+    --icon-color-2: #E0E0E0;
+    --primary-color: #6200ea;
+    --secondary-color: #018786;
+    --tertiary-color: #ff9800;
+    --surface-color: #f5f5f5;
+    --border-color: #e0e0e0;
+    --active-text: #6200ea;
+    --active-div-background: #d1c4e9;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+
+    --rgba-1: rgba(0,0,0,0.1);
+    --rgba-2: rgba(0,0,0,0.2);
+    --rgba-3: rgba(0,0,0,0.3);
+    --rgba-4: rgba(0,0,0,0.4);
+    --rgba-5: rgba(0,0,0,0.5);
+    --rgba-6: rgba(0,0,0,0.6);
+    --rgba-7: rgba(0,0,0,0.7);
+    --rgba-8: rgba(0,0,0,0.8);
+    --rgba-9: rgba(0,0,0,0.9);
+    --rgba-10: rgba(0,0,0,1);
+
+    --mountains-nightview: url('../image/abstract-landscape-with-photorealistic-view-moon.jpg');
+    --mountains-nightview-small: url('../image/abstract-landscape-with-photorealistic-view-moon-small.jpg');
+    --cliff: url('../image/beautiful-cliff-landscape.jpg');
+    --cliff-blur: url('../image/beautiful-cliff-landscape-blur.jpg');
+    --cliff-small: url('../image/beautiful-cliff-landscape-small.jpg');
+    --mountains: url('../image/beautiful-mountains-landscape.jpg');
+    --mountains-blur: url('../image/beautiful-mountains-landscape-blur.jpg');
+    --mountains-small: url('../image/beautiful-mountains-landscape-small.jpg');
+    --mountains-nature: url('../image/mountainous-nature-landscape-with-lake.jpg');
+    --mountains-nature-small: url('../image/mountainous-nature-landscape-with-lake-small.jpg');
+    --mountains-with-lake: url('../image/painting-mountain-lake-with-mountain-background.jpg');
+    --mountains-with-lake-small: url('../image/painting-mountain-lake-with-mountain-background-small.jpg');
+    --orange-background: url('../image/full-color-gradient-abstract-background-orange-backgrounds-vector-illustration_542898-61.jpg');
+    --orange-background-UHD: url('../image/full-color-gradient-abstract-background-orange-backgrounds-vector-illustration_542898-61-UHD.jpg');
+    --orange-background-4K: url('../image/full-color-gradient-abstract-background-orange-backgrounds-vector-illustration_542898-61-4K.jpg');
+}
+
+.dark-mode{
+    --light: #181717;
+    --light-dark: #616161;
+    --black: #F9F9F9;
+    --blue: #3C91E6;
+    --light-blue: #CFE8FF;
+    --grey: #3C3C3C;
+    --grey-dark: #555555;
+    --dark-grey: #969696;
+    --dark: #CCCCCC;
+    --red: #DB504A;
+    --yellow: #FFCE26;
+    --light-yellow: #FFF2C6;
+    --orange: #FD7238;
+    --light-orange: #FFE0D3;
+
+    --background-color: #121212;
+    --secondary-background-color: #2c2c2c;
+    --text-color-1: #ffffff;
+    --text-color-2: #000000;
+    --icon-color-1: #E0E0E0;
+    --icon-color-2: #333333;
+    --primary-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --tertiary-color: #ffb74d;
+    --surface-color: #1f1f1f;
+    --border-color: #292929;
+    --active-text: #bb86fc;
+    --active-div-background: #3c3c3c;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}

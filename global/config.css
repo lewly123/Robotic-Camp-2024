@@ -1,0 +1,98 @@
+:root {
+    /* Font Size */
+    --8px: 0.5rem;
+    --12px: 0.75rem;
+    --16px: 1rem;
+    --18px: 1.125rem;
+    --20px: 1.25rem;
+    --24px: 1.5rem;
+    --28px: 1.75rem;
+    --32px: 2rem;
+    --36px: 2.25rem;
+    --72px: 4.5rem;
+    
+    /* Default Colour */
+    --colorBlack: #252525;
+    --colorWhite: #f1f1f1;
+    --colorRed: #DB504A;
+
+
+    /* Theme Colour (Based on the image) */
+    --primaryColour: #381E56; /* Deep purple for highlights */
+    --secondaryColour: #FF6B3A; /* Orange glow from lights */
+    --tertiaryColour: #6A0572; /* Muted violet for supporting elements */
+    --fourthlyColour: #8B8D8E; /* Ashy grey for text or borders */
+    --fifthlyColour: #120E43; /* Dark blue for deeper shadows */
+
+    --backgroundColor: #0D0D0D; /* Almost black for the background */
+    --surfaceColor: #1A1A1A; /* Slightly lighter black for cards/sections */
+    --borderColor: #381E56; /* Deep purple borders */
+
+    --secondaryBackgroundColor: #2E1A47; /* Muted purple for contrast background */
+    --secondarySurfaceColor: #4A4E69; /* Dark slate for alternative surfaces */
+    --secondaryBorderColor: #FF6B3A; /* Orange for secondary border highlights */
+
+    --tertiaryBackgroundColor: #120E43; /* Dark blue for tertiary background */
+    --tertiarySurfaceColor: #381E56; /* Purple for tertiary surfaces */
+    --tertiaryBorderColor: #8B8D8E; /* Grey borders */
+
+    --shadowColor: rgba(0, 0, 0, 0.2);
+
+    /* Animation */
+    --hText: #FF6B3A; /* Bright orange for hover text */
+    --hBackground: #381E56; /* Purple hover background */
+    --hBorderColor: #FF6B3A; /* Orange hover borders */
+
+    /* Image */
+    --mainPage1: url(../assets/mainPage1.jpg);
+
+    --transitionDuration: .5s;
+}
+
+.DARKMODE {
+    /* Default Colour */
+    --colorBlack: #f1f1f1;
+    --colorWhite: #252525;
+
+    /* Theme Colour */
+    --primaryColour: #000000;
+    --secondaryColour: #000000;
+    --tertiaryColour: #000000;
+    --fourthlyColour: #000000;
+    --fifthlyColour: #000000;
+/* ------------------------------------------------- */
+    --backgroundColor: #000000;
+    --surfaceColor: #000000;
+    --borderColor: #000000;
+/* ------------------------------------------------- */
+    --secondaryBackgroundColor: #000000;
+    --secondarySurfaceColor: #000000;
+    --secondaryBorderColor: #000000;
+/* ------------------------------------------------- */
+    --tertiaryBackgroundColor: #000000;
+    --tertiarySurfaceColor: #000000;
+    --tertiaryBorderColor: #000000;
+/* ------------------------------------------------- */
+    --shadowColor: rgba(0, 0, 0, 0.2);
+
+    /* Animation */
+    --hText: #000000;
+    --hBackground: #000000;
+    --hBorderColor: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    /* Scroll Bar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* overflow-x: hidden; */
+}
+
+.HIDDEN {
+    display: none;
+}

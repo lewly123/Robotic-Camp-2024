@@ -1,0 +1,49 @@
+{
+    "sidebar": {
+        "dashboard": {
+            "dashboard.html": ".dashboard"
+        },
+        "chart": {
+            "todo-list.html": ".todo-list",
+            "workout.html": ".todo-list"
+        },
+        "study": {
+            "study.html": ".study",
+            "personal-lexicon.html": ".study",
+            "personal-lexicon-english.html": ".study",
+            "flash-card.html": ".study",
+            "stats.html": ".study"
+        },
+        "curriculum": {
+            "curriculum.html": ".curriculum",
+            "stjohn.html": ".curriculum",
+            "canteen-day.html": ".curriculum",
+            "calculator.html": ".curriculum",
+            "database.html": ".curriculum",
+            "prefect.html": ".curriculum"
+        },
+        "page-5": {
+            "page-5.html": ".page-5"
+        },
+        "settings": {
+            "settings.html": ".settings",
+            "my-account.html": ".settings"
+        }
+    },
+
+    "backgroundColors": [
+      "rgba(5, 99, 132, 1)", 
+      "rgba(5, 159, 64, 1)", 
+      "rgba(255, 205, 86, 1)", 
+      "rgba(75, 192, 192, 1)", 
+      "rgba(54, 162, 235, 1)", 
+      "rgba(153, 102, 255, 1)" 
+    ],
+
+    "progressColor": "rgba(255, 99, 132, 1)",
+
+    "goalColor": "rgba(75, 192, 192, 0.3)",
+
+    "excessColor": "rgba(255, 99, 132, 0.5)"
+  }
+  
