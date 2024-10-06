@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a href="https://github.com/lewly123/Robotic-Camp-2024">
-    <img src="README/logo.png" alt="Logo" width="80" height="80">
+    <img src="README/logo.png" alt="Logo" width= height="80">
   </a>
 
   <h3 align="center">Robotic Camp 2024</h3>
