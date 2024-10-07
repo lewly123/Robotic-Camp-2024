@@ -12,9 +12,9 @@
     <a href="https://roboticcamp2024.web.app"><strong>Visit the website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/lewly123/Robotic-Camp-2024/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/lewly123/Robotic-Camp-2024/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=">Request Feature</a>
   </p>
 </div>
 
@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](#)
 
 This is a web application built for the **Robotic Camp 2024**. It integrates Firebase services to handle backend functionality and is built using front-end technologies like HTML, CSS, and JavaScript. and will make the camp experience more fun by gamifying different aspects of the event. 
 
@@ -77,7 +77,7 @@ These features ensure the event runs smoothly while adding competitive and inter
 - [ ] Implement advanced game mechanics
 - [ ] Enhance the admin dashboard with analytics
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/lewly123/Robotic-Camp-2024/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,7 +95,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * [Google Fonts](https://fonts.google.com/)
 * [Boxicons](https://boxicons.com)
 
-If your name was missed in the acknowledgments, please message me through Discord: `discord#0000`.
+If your name was missed in the acknowledgments, please message me through Discord: `𝓒𝓻𝓮𝓮𝓹𝔂#8378`.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
