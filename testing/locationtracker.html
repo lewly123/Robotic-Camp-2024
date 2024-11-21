@@ -1,0 +1,23 @@
+<div id="maps"></div>
+
+<script>
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //     const { latitude, longitude } = position.coords;
+    //     maps.innerHTML = '<iframe width="700" height="300" src="https://maps.google.com/maps?q='+latitude+','+longitude+'&amp;z=15&amp;output=embed"><iframe>'
+    // });
+
+
+    const watchId = navigator.geolocation.watchPosition(position => {
+        const { latitude, longitude } = position.coords;
+        console.log("watchId -", watchId);
+        console.log("Latitude:", latitude); 
+        console.log("Longitude:", longitude); 
+        maps.innerHTML = `<p>Latitude: ${latitude}</p><p>Longitude: ${longitude}</p>`
+    })
+</script>
+
+// https://www.youtube.com/watch?v=9sPNTMx7HfY
+
+
+// more
+// https://www.youtube.com/watch?v=NyjMmNCtKf4
