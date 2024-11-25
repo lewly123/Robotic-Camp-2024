@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" http-equiv="ScreenOrientation" content="width=device-width, initial-scale=1.0, autoRotate:disabled">
     <title>Main</title>
     <link rel="stylesheet" href="../global/fonts.css">
     <link rel="stylesheet" href="../global/config.css">
@@ -79,16 +79,22 @@
     </div>
     <section id="section1">
         <header>
-            <p>ZOMBIE OUTBREAK</p>
+            <div class="title">
+                <p>ZOMBIE OUTBREAK</p>
+                <div class="toggleMenu">
+                    <input type="checkbox" id="toggleNavMenu" onclick="toggleDropDownNavMenu()">
+                    <label for="toggleNavMenu"></label>
+                </div>
+            </div>
             <nav>
-                <ul>
+                <ul id="ul">
                     <li><a href="#" class="navItems">HOME</a></li>
                     <li><a href="#" class="navItems">INFO</a></li>
                     <li><a href="#" class="navItems">___</a></li>
-                    <!-- <button onclick="toggleLoginPopUp()" id="loginButton">LOGIN</button> -->
+                    <button onclick="toggleLoginPopUp()" id="loginButton">LOGIN</button>
                     <div class='dropdown'>
                         <!-- <button>test</button> -->
-                        <i class='bx bxs-user-circle' ></i>
+                        <i class='bx bxs-user-circle' onclick="toggleDropDownUser()"></i>
                         <div class='dropdown-content'>
                             <div class='user-info'>
                                 <p class='name'></p>
@@ -162,6 +168,16 @@
             document.getElementById("loginPopUp").classList.toggle("active");
             document.getElementById("loginButton").classList.toggle("active");
             document.getElementById("overlay").classList.toggle("active");
+        }
+
+        function toggleDropDownUser() {
+            let menu = document.querySelector(".dropdown-content")
+            menu.classList.toggle("active");
+        }
+
+        function toggleDropDownNavMenu() {
+            let menu = document.querySelector("ul")
+            menu.classList.toggle("active");
         }
 
         const wrapper = document.querySelector('.loginPopUp');
