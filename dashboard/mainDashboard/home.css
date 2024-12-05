@@ -8,7 +8,7 @@
 /* Style for each grid item (box) */
 .childMainTitleBox {
     background-color: #111;
-    color: #ffcc00;
+    color: var(--fifthlyColour);
     padding: 20px;
     border-radius: 8px;
     display: flex;
@@ -52,13 +52,13 @@
 
 i {
     font-size: 2em;
-    color: #ffcc00;
+    color: var(--fifthlyColour);
 }
 
 strong {
     font-size: 1.5em;
     display: block;
-    color: #ffcc00;
+    color: var(--fifthlyColour);
 }
 
 /* Responsive styles for smaller screens */

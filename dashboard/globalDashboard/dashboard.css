@@ -1,5 +1,5 @@
 body {
-    background-color: cyan;
+    background-color: var(--fifthlyColour);
 }
 
 #content {
@@ -16,12 +16,12 @@ body {
 
 /* Side Bar */
 /* 
-    > Panel color: orange
-    > Sidebar title fonts color: yellow 
-    > Sidebar items fonts color: greenyellow
-    > Hover & Active font color: darkblue
-    > Active box border & shadow color: cyan
-    > Theme Icon (Sun&Moon) color: #666(grey moon) #fff(white sun)
+    > Panel color: backgroundColor
+    > Sidebar title fonts color: colorBlack 
+    > Sidebar items fonts color: colorBlack2
+    > Hover & Active font color: hText2 
+    > Active box border & shadow color: fifthlyColour
+    > Theme Icon (Sun&Moon) color: tertiaryColour (grey moon) #fff(white sun)
 */
 header.sideBar {
     position: fixed;
@@ -30,7 +30,7 @@ header.sideBar {
     width: 280px;
     max-width: 280px;
     height: 100%;
-    background-color: orange;
+    background-color: var(--backgroundColor);
     z-index: 99;
     transition: all var(--transitionDuration) ease;
     overflow-x: hidden;
@@ -56,12 +56,12 @@ header.sideBar {
     height: 56px;
     display: flex;
     align-items: center;
-    color: yellow;
+    color: var(--colorBlack);
     position: sticky;
     top: 0;
     left: 0;
     z-index: 99;
-    background: orange;
+    background: var(--backgroundColor);
     padding-bottom: 20px;
     box-sizing: content-box;
     transition: all var(--transitionDuration) ease;
@@ -88,7 +88,7 @@ header.sideBar {
 }
 
 .sideBar .sideMenu li.active {
-    background: cyan;
+    background: var(--fifthlyColour);
     position: relative;
 }
 
@@ -100,7 +100,7 @@ header.sideBar {
     border-radius: 50%;
     top: -40px;
     right: 0;
-    box-shadow: 20px 20px 0 cyan;
+    box-shadow: 20px 20px 0 var(--fifthlyColour);
     z-index: -1;
 }
 
@@ -112,26 +112,26 @@ header.sideBar {
     border-radius: 50%;
     bottom: -40px;
     right: 0;
-    box-shadow: 20px -20px 0 cyan;
+    box-shadow: 20px -20px 0 var(--fifthlyColour);
     z-index: -1;
 }
 
 .sideBar .sideMenu li a {
     width: 100%;
     height: 100%;
-    background: orange;
+    background: var(--backgroundColor);
     display: flex;
     align-items: center;
     border-radius: 48px;
     font-size: 16px;
-    color: greenyellow;
+    color: var(--colorBlack2);
     /* white-space: nowrap; */
     overflow-x: hidden;
 }
 
 .sideBar.hide .sideMenu li.active a,
 .sideBar .sideMenu li.active a {
-    color: darkblue;
+    color: var(--hText2);
 }
 
 .sideBar.hide .sideMenu li a {
@@ -149,7 +149,7 @@ header.sideBar {
 
 .sideBar .sideMenu.top li a:hover,
 .sideBar .sideMenu li.settings a:hover {
-    color: darkblue;
+    color: var(--hText2);
 }
 
 .sideBar .sideMenu li a i {
@@ -162,7 +162,7 @@ header.sideBar {
 #content nav {
     height: 56px;
     width: 100%;
-    background: orange;
+    background: var(--backgroundColor);
     padding: 0 24px;
     display: flex;
     align-items: center;
@@ -183,13 +183,13 @@ header.sideBar {
     bottom: -40px;
     left: 0;
     border-radius: 50%;
-    box-shadow: -20px -20px 0 orange;
+    box-shadow: -20px -20px 0 var(--backgroundColor);
     transition: all var(--transitionDuration) ease;
 }
 
 /* Menu */
 #content nav i.bx-menu {
-    color: greenyellow;
+    color: var(--colorBlack2);
     cursor: pointer;
     transition: var(--transitionDuration) ease;
     flex-shrink: 0;
@@ -202,7 +202,7 @@ header.sideBar {
     width: 30px;
     padding: 0;
     border-radius: 50%;
-    background: greenyellow; /**/
+    background: var(--colorBlack2); /**/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,11 +220,11 @@ header.sideBar {
 }
 
 .DARKMODE #themeSwitch {
-    background: #fff;
+    background: var(--primaryColour);
 }
 
 #themeSwitch i.bxs-moon {
-    color: #666;
+    color: var(--tertiaryColour);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
     transition-delay: .3s;
     transition: 1s ease;
@@ -238,7 +238,7 @@ header.sideBar {
 
 #themeSwitch i.bxs-sun {
     position: absolute;
-    color: #666;
+    color: var(--fifthlyColour);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
     transform: scale(0);
     transition: .5s ease;
@@ -268,7 +268,7 @@ header.sideBar {
     position: relative;
     margin: 0;
     padding: 0;
-    color: var(--colorWhite);
+    color: var(--colorBlack2);
 }
 
 .dropdown i {
@@ -325,7 +325,7 @@ header.sideBar {
     border: 0;
     height: 1px;
     width: 100%;
-    background-color: var(--colorWhite);
+    background-color: var(--colorBlack2);
     margin: 10px 0 10px;
 }
 
@@ -335,7 +335,7 @@ header.sideBar {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--light);
+    color: var(--colorBlack2);
     margin: 12px 0;
 }
 

@@ -13,18 +13,18 @@
     
     /* Default Colour */
     --colorBlack: #252525;
+    --colorBlack2: #2e2e2e;
     --colorWhite: #f1f1f1;
     --colorRed: #DB504A;
-
-
+    
     /* Theme Colour (Based on the image) */
-    --primaryColour: #381E56; /* Deep purple for highlights */
-    --secondaryColour: #FF6B3A; /* Orange glow from lights */
-    --tertiaryColour: #6A0572; /* Muted violet for supporting elements */
-    --fourthlyColour: #8B8D8E; /* Ashy grey for text or borders */
-    --fifthlyColour: #120E43; /* Dark blue for deeper shadows */
+    --primaryColour: #5C9B9B; /* Deep purple for highlights */
+    --secondaryColour: #7AA8A8; /* Orange glow from lights */
+    --tertiaryColour: #8DAEAD; /* Muted violet for supporting elements */
+    --fourthlyColour: #A1B3B1; /* Ashy grey for text or borders */
+    --fifthlyColour: #B7C9C7; /* Dark blue for deeper shadows */
 
-    --backgroundColor: #0D0D0D; /* Almost black for the background */
+    --backgroundColor: #5C9B9B; /* Almost black for the background */
     --surfaceColor: #1A1A1A; /* Slightly lighter black for cards/sections */
     --borderColor: #381E56; /* Deep purple borders */
 
@@ -42,6 +42,10 @@
     --hText: #FF6B3A; /* Bright orange for hover text */
     --hBackground: #381E56; /* Purple hover background */
     --hBorderColor: #FF6B3A; /* Orange hover borders */
+    
+    --hText2: #8DAEAD; /* Bright orange for hover text */
+    --hBackground2: #381E56; /* Purple hover background */
+    --hBorderColor2: #FF6B3A; /* Orange hover borders */
 
     /* Image */
     --mainPage1: url(../assets/mainPage1.jpg);
@@ -54,12 +58,19 @@
     --colorBlack: #f1f1f1;
     --colorWhite: #252525;
 
+
+    /* #4E6E6D
+#3B5B5A
+#2A4B48
+#1B3A3A
+#0D2A2A 
+ */
     /* Theme Colour */
-    --primaryColour: #000000;
-    --secondaryColour: #000000;
-    --tertiaryColour: #000000;
-    --fourthlyColour: #000000;
-    --fifthlyColour: #000000;
+    --primaryColour: #0D2A2A;
+    --secondaryColour: #1B3A3A;
+    --tertiaryColour: #2A4B48;
+    --fourthlyColour: #3B5B5A;
+    --fifthlyColour: #4E6E6D;
 /* ------------------------------------------------- */
     --backgroundColor: #000000;
     --surfaceColor: #000000;
