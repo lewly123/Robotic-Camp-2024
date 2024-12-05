@@ -1,12 +1,13 @@
 body {
     background-color: var(--fifthlyColour);
+    transition: all var(--transitionDuration) ease;
 }
 
 #content {
     position: relative;
     width: calc(100% - 280px);
     left: 280px;
-    transition: var(--transitionDuration) ease;
+    transition: all var(--transitionDuration) ease;
 }
 
 .sideBar.hide~#content {
@@ -90,6 +91,7 @@ header.sideBar {
 .sideBar .sideMenu li.active {
     background: var(--fifthlyColour);
     position: relative;
+    transition: all var(--transitionDuration) ease;
 }
 
 .sideBar .sideMenu li.active::before {
@@ -102,6 +104,7 @@ header.sideBar {
     right: 0;
     box-shadow: 20px 20px 0 var(--fifthlyColour);
     z-index: -1;
+    transition: all var(--transitionDuration) ease;
 }
 
 .sideBar .sideMenu li.active::after {
@@ -114,6 +117,7 @@ header.sideBar {
     right: 0;
     box-shadow: 20px -20px 0 var(--fifthlyColour);
     z-index: -1;
+    transition: all var(--transitionDuration) ease;
 }
 
 .sideBar .sideMenu li a {
@@ -125,6 +129,7 @@ header.sideBar {
     border-radius: 48px;
     font-size: 16px;
     color: var(--colorBlack3);
+    transition: all var(--transitionDuration) ease;
     /* white-space: nowrap; */
     overflow-x: hidden;
 
@@ -136,6 +141,7 @@ header.sideBar {
 .sideBar.hide .sideMenu li.active a,
 .sideBar .sideMenu li.active a {
     color: var(--hText2);
+    transition: all var(--transitionDuration) ease;
 
     i {
         color: var(--hText2);
@@ -148,7 +154,7 @@ header.sideBar {
 }
 
 .sideBar.hide .sideMenu li.active a {
-    transition: width .9s ease;
+    transition: width var(--transitionDuration) ease;
 }
 
 .sideBar .sideMenu li.logout a {
@@ -168,6 +174,7 @@ header.sideBar {
     min-width: calc(60px - ((4px + 6px) *2));
     display: flex;
     justify-content: center;
+    transition: all var(--transitionDuration) ease;
 }
 
 /* Nav Bar */
@@ -308,7 +315,7 @@ header.sideBar {
     right: 0%;
     transform-origin: top;
     transform: scaleY(0);
-    transition: transform var(--transitionDuration) ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transition: transform var(--transitionDuration) ease, opacity var(--transitionDuration) ease, visibility var(--transitionDuration) ease;
 }
 
 .dropdown:hover .dropdown-content {
@@ -362,7 +369,7 @@ header.sideBar {
 
 .dropdown-content .user-content .content-link span {
     font-size: var(--20px);
-    transition: transform var(--transitionDuration) ease-in-out;
+    transition: transform var(--transitionDuration) ease;
     padding-right: 10px;
     font-family: var(--poppins);
 }
