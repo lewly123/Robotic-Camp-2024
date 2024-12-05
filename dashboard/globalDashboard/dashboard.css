@@ -18,7 +18,7 @@ body {
 /* 
     > Panel color: backgroundColor
     > Sidebar title fonts color: colorBlack 
-    > Sidebar items fonts color: colorBlack2
+    > Sidebar items fonts color: colorBlack3
     > Hover & Active font color: hText2 
     > Active box border & shadow color: fifthlyColour
     > Theme Icon (Sun&Moon) color: tertiaryColour (grey moon) #fff(white sun)
@@ -56,7 +56,7 @@ header.sideBar {
     height: 56px;
     display: flex;
     align-items: center;
-    color: var(--colorBlack);
+    color: var(--hText2);
     position: sticky;
     top: 0;
     left: 0;
@@ -124,14 +124,22 @@ header.sideBar {
     align-items: center;
     border-radius: 48px;
     font-size: 16px;
-    color: var(--colorBlack2);
+    color: var(--colorBlack3);
     /* white-space: nowrap; */
     overflow-x: hidden;
+
+    i {
+        color: var(--colorBlack3);
+    }
 }
 
 .sideBar.hide .sideMenu li.active a,
 .sideBar .sideMenu li.active a {
     color: var(--hText2);
+
+    i {
+        color: var(--hText2);
+    }
 }
 
 .sideBar.hide .sideMenu li a {
@@ -150,6 +158,10 @@ header.sideBar {
 .sideBar .sideMenu.top li a:hover,
 .sideBar .sideMenu li.settings a:hover {
     color: var(--hText2);
+
+    i {
+        color: var(--hText2);
+    }
 }
 
 .sideBar .sideMenu li a i {
@@ -189,7 +201,7 @@ header.sideBar {
 
 /* Menu */
 #content nav i.bx-menu {
-    color: var(--colorBlack2);
+    color: var(--colorBlack3);
     cursor: pointer;
     transition: var(--transitionDuration) ease;
     flex-shrink: 0;
@@ -198,11 +210,13 @@ header.sideBar {
 
 /* Theme change */
 #themeSwitch {
-    height: 30px; /* 50px */
+    height: 30px;
+    /* 50px */
     width: 30px;
     padding: 0;
     border-radius: 50%;
-    background: var(--colorBlack2); /**/
+    background: var(--colorBlack3);
+    /**/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,12 +225,12 @@ header.sideBar {
     /* position: fixed; */
     /* top: 20px;
     right: 20px; */
-    box-shadow: 
+    box-shadow:
         inset 0 8px 60px rgba(0, 0, 0, .1),
         inset 0 8px 8px rgba(0, 0, 0, .1),
         inset 0 -4px 4px rgba(0, 0, 0, .1);
     z-index: -1;
-        transition: 1s ease;
+    transition: 1s ease;
 }
 
 .DARKMODE #themeSwitch {
@@ -224,7 +238,7 @@ header.sideBar {
 }
 
 #themeSwitch i.bxs-moon {
-    color: var(--tertiaryColour);
+    color: var(--backgroundColor);
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5));
     transition-delay: .3s;
     transition: 1s ease;
@@ -246,7 +260,7 @@ header.sideBar {
 
 .DARKMODE #themeSwitch i.bxs-sun {
     transition-delay: .3s;
-    transform: scale(1) rotate(360deg) ;
+    transform: scale(1) rotate(360deg);
 }
 
 /* #themeSwitch i:last-child {
@@ -268,7 +282,7 @@ header.sideBar {
     position: relative;
     margin: 0;
     padding: 0;
-    color: var(--colorBlack2);
+    color: var(--colorBlack3);
 }
 
 .dropdown i {
@@ -325,7 +339,7 @@ header.sideBar {
     border: 0;
     height: 1px;
     width: 100%;
-    background-color: var(--colorBlack2);
+    background-color: var(--colorBlack3);
     margin: 10px 0 10px;
 }
 
@@ -335,7 +349,7 @@ header.sideBar {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--colorBlack2);
+    color: var(--colorBlack3);
     margin: 12px 0;
 }
 

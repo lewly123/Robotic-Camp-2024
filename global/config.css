@@ -14,17 +14,18 @@
     /* Default Colour */
     --colorBlack: #252525;
     --colorBlack2: #2e2e2e;
+    --colorBlack3: #252525;
     --colorWhite: #f1f1f1;
     --colorRed: #DB504A;
     
     /* Theme Colour (Based on the image) */
-    --primaryColour: #5C9B9B; /* Deep purple for highlights */
-    --secondaryColour: #7AA8A8; /* Orange glow from lights */
-    --tertiaryColour: #8DAEAD; /* Muted violet for supporting elements */
-    --fourthlyColour: #A1B3B1; /* Ashy grey for text or borders */
-    --fifthlyColour: #B7C9C7; /* Dark blue for deeper shadows */
+    --primaryColour: #2a5a38; /* Deep purple for highlights */
+    --secondaryColour: #397048; /* Orange glow from lights */
+    --tertiaryColour: #3b6e53; /* Muted violet for supporting elements */
+    --fourthlyColour: #588862; /* Ashy grey for text or borders */
+    --fifthlyColour: #679275; /* Dark blue for deeper shadows */
 
-    --backgroundColor: #5C9B9B; /* Almost black for the background */
+    --backgroundColor: #3b6d5e; /* Almost black for the background */
     --surfaceColor: #1A1A1A; /* Slightly lighter black for cards/sections */
     --borderColor: #381E56; /* Deep purple borders */
 
@@ -56,6 +57,7 @@
 .DARKMODE {
     /* Default Colour */
     --colorBlack: #f1f1f1;
+    --colorBlack3: #5c9d8c;
     --colorWhite: #252525;
 
 
@@ -66,13 +68,13 @@
 #0D2A2A 
  */
     /* Theme Colour */
-    --primaryColour: #0D2A2A;
-    --secondaryColour: #1B3A3A;
-    --tertiaryColour: #2A4B48;
-    --fourthlyColour: #3B5B5A;
-    --fifthlyColour: #4E6E6D;
+    --primaryColour: #03161c;
+    --secondaryColour: #0a202a;
+    --tertiaryColour: #0f2d34;
+    --fourthlyColour: #132e2d;
+    --fifthlyColour: #3a2152;
 /* ------------------------------------------------- */
-    --backgroundColor: #000000;
+    --backgroundColor: #0f0c22;
     --surfaceColor: #000000;
     --borderColor: #000000;
 /* ------------------------------------------------- */
