@@ -4,7 +4,7 @@ body {
 }
 
 #content {
-    position: relative;
+    position: absolute;
     width: calc(100% - 280px);
     left: 280px;
     transition: all var(--transitionDuration) ease;
@@ -177,6 +177,10 @@ header.sideBar {
     transition: all var(--transitionDuration) ease;
 }
 
+#content {
+    overflow-x: hidden;
+}
+
 /* Nav Bar */
 #content nav {
     height: 56px;
@@ -192,6 +196,7 @@ header.sideBar {
     left: 0;
     z-index: 99;
     transition: all var(--transitionDuration) ease;
+    overflow-x: visible;
 }
 
 #content nav::before {
@@ -412,7 +417,22 @@ header.sideBar {
 
 @media screen and (max-width: 700px) {}
 
-@media screen and (max-width: 576px) {}
+@media screen and (max-width: 576px) {
+    #content {
+        display: block;
+    }
+    main h1,
+    hr,
+    .mainTitleBox,
+    .maps,
+    .membersList,
+    .displayDirection {
+        /* display: flex;
+        position: relative;
+        flex-wrap: nowrap; */
+        min-width: 200px;
+    }
+}
 
 /* Breedcrumbs */
 #content main {
@@ -420,7 +440,7 @@ header.sideBar {
     padding: 36px 24px;
     font-family: var(--poppins);
     max-height: calc(100vh - 56px);
-    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #content main .head-title {

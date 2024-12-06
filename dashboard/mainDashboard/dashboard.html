@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="./home.css" defer>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' defer>
 </head>
+
 <body>
     <header class="sideBar">
         <a href="../../index.html" class="zombieOutbreak">
@@ -20,7 +22,7 @@
         </a>
         <ul class="sideMenu top">
             <li class="dashboard">
-                <a href="">
+                <a href="#">
                     <i class='bx bxs-home'></i>
                     <span class="textContent">Home</span>
                 </a>
@@ -70,12 +72,12 @@
         <nav>
             <i class='bx bx-menu'></i>
             <button id="themeSwitch">
-                <i class='bx bxs-moon' ></i>
-                <i class='bx bxs-sun' ></i>
+                <i class='bx bxs-moon'></i>
+                <i class='bx bxs-sun'></i>
             </button>
             <div class='dropdown'>
                 <!-- <button>test</button> -->
-                <i class='bx bxs-user-circle' ></i>
+                <i class='bx bxs-user-circle'></i>
                 <div class='dropdown-content'>
                     <div class='user-info'>
                         <p class='name'></p>
@@ -95,7 +97,7 @@
                                 <span>></span>
                             </a> -->
                             <a href='./dashboard/dashboard.php' class='content-link'>
-                                <i class='bx bxs-dashboard' ></i>
+                                <i class='bx bxs-dashboard'></i>
                                 <p>DASHBOARD</p>
                                 <span>></span>
                             </a>
@@ -108,7 +110,7 @@
                         <hr>
                         <div class='content-logout'>
                             <a href='includes/logout.inc.php' class='content-link'>
-                                <i class='bx bx-log-out' ></i>
+                                <i class='bx bx-log-out'></i>
                                 <p>LOGOUT</p>
                                 <span>></span>
                             </a>
@@ -119,43 +121,95 @@
         </nav>
         <main>
             <h1>Welcome to Zombie Outbreak</h1>
-            <h4>This mainly just for robotic camp only.</h4>
+            <!-- <h4>This mainly just for robotic camp only.</h4> -->
             <div class="mainTitleBox">
                 <div class="childMainTitleBox">
-                    <div>
-                        <span>
-                            <i class='bx bxs-user' ></i>
-                        </span>
-                    </div>
-                    <div>
-                        <h2 class="childMainTitleH1">Charactor</h2>
-                        <strong class="childMainTitleP">Human</strong>
-                    </div>
+                    <canvas id="Ranking" style="width:100%;max-width:600px;min-height:200px;transition:none;"></canvas>
                 </div>
                 <div class="childMainTitleBox">
-                    <div>
-                        <span>
-                            <i class='bx bx-coin' ></i>
-                        </span>
+                    <div class="contentMainTitleBox">
+                        <p>Rank #1</p>
                     </div>
-                    <div>
-                        <h2 class="childMainTitleH1">Coins</h2>
-                        <strong class="childMainTitleP">300</strong>
-                    </div>
-                </div>
-                <div class="childMainTitleBox">
-                    <div>
-                        <span>
-                            <i class='bx bxs-bar-chart-alt-2' ></i>
-                        </span>
-                    </div>
-                    <div>
-                        <h2 class="childMainTitleH1">Leaderboard</h2>
-                        <strong class="childMainTitleP">Top 1</strong>
+                    <div class="contentMainTitleBox">
+                        <p>$10,000</p>
                     </div>
                 </div>
             </div>
+            <hr>
+            <div class="direction">
+                <div class="displayDirection currentLocation">
+                    <p>Current Location: Lorem ipsum</p>
+                </div>
+                <div class="displayDirection nextStation">
+                    <p>Next Station: Lorem ipsum</p>
+                </div>
+            </div>
+            <hr>
+            <div class="membersList">
+                <h2>Members</h2>
+                <hr style="border-bottom: 1px solid var(--hText2);">
+                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
+                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
+                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
+                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
+            </div>
+            <div class="mapsContent">
+                <h1>Maps</h1>
+            </div>
         </main>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const xValues = ["Team #1", "Unknown"];
+        const yValues = [10, 90];
+        const barColors = ["#00aba9", "#b91d47"];
+
+        const ctx = document.getElementById("Ranking").getContext("2d");
+        new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    borderWidth: 0, // Remove white border
+                    data: yValues,
+                    hoverOffset: 15 // Hover effect
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom', // Legend on the right
+                        labels: {
+                            usePointStyle: true, // Use circular markers for labels
+                            boxWidth: 10 // Adjust marker size
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.label || '';
+                                const value = context.raw || 0;
+                                return `${label}: ${value}%`;
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: "Team Ranking Overview"
+                    }
+                },
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutBounce'
+                }
+            }
+        });
+    </script>
+    </script>
 </body>
+
 </html>

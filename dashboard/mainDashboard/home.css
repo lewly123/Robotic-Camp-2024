@@ -1,15 +1,23 @@
+main hr {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--secondaryColour);
+}
+
 /* Style for main grid container */
 .mainTitleBox {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px;
 }
 
 /* Style for each grid item (box) */
 .childMainTitleBox {
     background-color: var(--secondaryColour);
     color: var(--hText2);
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -19,63 +27,86 @@
 }
 
 /* Make the Leaderboard span across all columns */
-.childMainTitleBox:nth-child(3) {
-    grid-column: span 1; /* Leaderboard spans 3 columns */
+.childMainTitleBox:nth-child(1) {
+    grid-column: span 2; /* Leaderboard spans 3 columns */
 }
-
-/* Adjust child elements */
-.childMainTitleBox i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.childMainTitleBox div {
+.childMainTitleBox:nth-child(2) {
+    grid-column: span 3; /* Leaderboard spans 3 columns */
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    padding: 0px;
     display: flex;
     flex-direction: column;
+}
+
+.contentMainTitleBox {
+    background-color: var(--secondaryColour);
+    color: var(--hText2);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
 }
 
-.childMainTitleBox div:nth-last-child(1) {
-    margin-left: 15px;
-}
-
-.childMainTitleH1 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.childMainTitleP {
-    font-size: 1.2em;
-}
-
-i {
-    font-size: 2em;
+.direction {
     color: var(--hText2);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
 }
 
-strong {
-    font-size: 1.5em;
-    display: block;
+.displayDirection {
+    background-color: var(--secondaryColour);
     color: var(--hText2);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.membersList {
+    background-color: var(--secondaryColour);
+    color: var(--hText2);
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.mapsContent {
+    background-color: var(--secondaryColour);
+    color: var(--hText2);
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 
 /* Responsive styles for smaller screens */
 @media (max-width: 1200px) {
-    .mainTitleBox {
-        grid-template-columns: 1fr 1fr; /* 2 columns */
-    }
-    .childMainTitleBox:nth-child(3) {
-        grid-column: span 2; /* Leaderboard spans 2 columns on smaller screens */
-    }
 }
 
 @media (max-width: 900px) {
     .mainTitleBox {
         grid-template-columns: 1fr; /* 1 column */
     }
-    .childMainTitleBox:nth-child(3) {
+    .childMainTitleBox:nth-child(1),
+    .childMainTitleBox:nth-child(2) {
         grid-column: span 1; /* Leaderboard spans 1 column on small screens */
     }
 }

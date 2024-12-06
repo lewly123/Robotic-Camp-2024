@@ -36,6 +36,7 @@
     --tertiaryBorderColor: #8B8D8E; /* Grey borders */
 
     --shadowColor: rgba(0, 0, 0, 0.2);
+    --hrColor: #fff;
 
     /* Animation */
     --hText: #FF6B3A; /* Bright orange for hover text */
