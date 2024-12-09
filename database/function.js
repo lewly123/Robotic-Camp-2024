@@ -8,13 +8,31 @@ export function checkLoginStatus() {
     return sessionStorage.getItem("loggedInUserId") !== null;
 }
 
-export function updateUI() {
-    const isLoggedIn = checkLoginStatus();
+export function updateUI(user) {
+    const loginButton = document.getElementById("loginButton");
+    const dropdown = document.querySelector(".dropdown-content"); // Dropdown for user profile info
+    const userNameElement = document.querySelector(".name"); // User's name in the dropdown
+    const userEmailElement = document.querySelector(".email"); // User's email in the dropdown
 
-    if (isLoggedIn) {
+    if (user) {
+        // Hide login button and show dropdown profile
+        loginButton.style.display = "none";
+        dropdown.style.display = "block";
+
+        // Update profile info in the dropdown
+        userNameElement.innerText = user.displayName || "User";
+        userEmailElement.innerText = user.email;
     } else {
+        // Show login button and hide dropdown profile
+        loginButton.style.display = "block";
+        dropdown.style.display = "none";
+
+        // Clear profile info
+        userNameElement.innerText = "";
+        userEmailElement.innerText = "";
     }
 }
+
 
 // Firebase Function
 export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, userId, userEmail, userPassword) {
@@ -51,33 +69,62 @@ export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, 
         });
 }
 
+// export function login(signInWithEmailAndPassword, auth, db, setDoc, doc, userEmail, userPassword) {
+//     signInWithEmailAndPassword(auth, userEmail, userPassword)
+//         .then((userCredential) => {
+//             const user = userCredential.user;
+//             // localStorage.setItem('loggedInUserId', user.uid);
+//             // window.location.href = "main.html";
+//             console.log("User signed in: ", user);
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             console.error("Error signing in: ", errorMessage);
+
+//             if (error === 'auth/invalid-credential') {
+//                 console.log("Incorrect Email or Password");
+//             } else {
+//                 console.log(error);
+//             }
+//         });
+// }
+
 export function login(signInWithEmailAndPassword, auth, db, setDoc, doc, userEmail, userPassword) {
     signInWithEmailAndPassword(auth, userEmail, userPassword)
         .then((userCredential) => {
             const user = userCredential.user;
-            // localStorage.setItem('loggedInUserId', user.uid);
-            // window.location.href = "main.html";
+
+            // Store logged-in user's ID
+            localStorage.setItem('loggedInUserId', user.uid);
+
+            // Call UI update
+            updateUI(user);
+
             console.log("User signed in: ", user);
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error("Error signing in: ", errorMessage);
 
-            if (error === 'auth/invalid-credential') {
-                console.log("Incorrect Email or Password");
-            } else {
-                console.log(error);
-            }
+            console.error("Error signing in: ", errorMessage);
+            Notification(errorMessage, "loginMessage");
         });
 }
 
-export function signout(signOut, auth) {
+
+logoutButton.addEventListener('click', () => {
+    const auth = getAuth();
+
+    // Clear stored user ID
+    localStorage.removeItem('loggedInUserId');
+
     signOut(auth)
         .then(() => {
-            window.location.href = 'main.html';
+            console.log("User logged out");
+            updateUI(null); // Update the UI to show the login button again
         })
         .catch((error) => {
-            console.error('Error Signing out: ', error);
-        })
-}
+            console.error("Error signing out: ", error);
+        });
+});
