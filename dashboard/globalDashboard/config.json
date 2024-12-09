@@ -3,27 +3,17 @@
         "dashboard": {
             "dashboard.html": ".dashboard"
         },
+        "leaderboard": {
+            "leaderboard.html": ".leaderboard"
+        },
         "chart": {
-            "todo-list.html": ".todo-list",
-            "workout.html": ".todo-list"
+            "chart.html": ".chart"
         },
-        "study": {
-            "study.html": ".study",
-            "personal-lexicon.html": ".study",
-            "personal-lexicon-english.html": ".study",
-            "flash-card.html": ".study",
-            "stats.html": ".study"
+        "logs": {
+            "logs.html": ".logs"
         },
-        "curriculum": {
-            "curriculum.html": ".curriculum",
-            "stjohn.html": ".curriculum",
-            "canteen-day.html": ".curriculum",
-            "calculator.html": ".curriculum",
-            "database.html": ".curriculum",
-            "prefect.html": ".curriculum"
-        },
-        "page-5": {
-            "page-5.html": ".page-5"
+        "maps": {
+            "maps.html": ".maps"
         },
         "settings": {
             "settings.html": ".settings",

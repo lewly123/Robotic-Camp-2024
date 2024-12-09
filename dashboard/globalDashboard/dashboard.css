@@ -218,6 +218,10 @@ header.sideBar {
     transition: var(--transitionDuration) ease;
     flex-shrink: 0;
     margin-right: auto;
+
+    &:hover {
+        color: var(--hText2);
+    }
 }
 
 /* Theme change */

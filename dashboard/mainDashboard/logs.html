@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Leaderboard</title>
     <link rel="stylesheet" href="../../global/fonts.css" defer>
     <link rel="stylesheet" href="../../global/config.css" defer>
     <link rel="stylesheet" href="../globalDashboard/dashboard.css" defer>
     <script type="text/javascript" src="../globalDashboard/dashboard.js" defer></script>
     <link rel="stylesheet" href="../globalDashboard/config.css" defer>
-    <link rel="stylesheet" href="./home.css" defer>
+    <link rel="stylesheet" href="./logs.css" defer>
+    <link type="text/javascript" src="./logs.js" defer>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' defer>
 </head>
 
@@ -22,7 +23,7 @@
         </a>
         <ul class="sideMenu top">
             <li class="dashboard">
-                <a href="#">
+                <a href="dashboard.html">
                     <i class='bx bxs-home'></i>
                     <span class="textContent">Home</span>
                 </a>
@@ -40,7 +41,7 @@
                 </a>
             </li>
             <li class="logs">
-                <a href="logs.html">
+                <a href="#">
                     <i class='bx bxs-file'></i>
                     <span class="textContent">Logs</span>
                 </a>
@@ -124,92 +125,10 @@
             <!-- <h4>This mainly just for robotic camp only.</h4> -->
             <div class="mainTitleBox">
                 <div class="childMainTitleBox">
-                    <canvas id="Ranking" style="width:100%;max-width:600px;min-height:200px;transition:none;"></canvas>
                 </div>
-                <div class="childMainTitleBox">
-                    <div class="contentMainTitleBox">
-                        <p>Rank #1</p>
-                    </div>
-                    <div class="contentMainTitleBox">
-                        <p>$10,000</p>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="direction">
-                <div class="displayDirection currentLocation">
-                    <p>Current Location: Lorem ipsum</p>
-                </div>
-                <div class="displayDirection nextStation">
-                    <p>Next Station: Lorem ipsum</p>
-                </div>
-            </div>
-            <hr>
-            <div class="membersList">
-                <h2>Members</h2>
-                <hr style="border-bottom: 1px solid var(--hText2);">
-                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
-                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
-                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
-                <p><i class='bx bxs-chevron-right'></i> asd asd</p>
-            </div>
-            <div class="mapsContent">
-                <h1>Maps</h1>
             </div>
         </main>
     </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const xValues = ["Team #1", "Unknown"];
-        const yValues = [10, 90];
-        const barColors = ["#00aba9", "#b91d47"];
-
-        const ctx = document.getElementById("Ranking").getContext("2d");
-        new Chart(ctx, {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: barColors,
-                    borderWidth: 0, // Remove white border
-                    data: yValues,
-                    hoverOffset: 15 // Hover effect
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom', // Legend on the right
-                        labels: {
-                            usePointStyle: true, // Use circular markers for labels
-                            boxWidth: 10 // Adjust marker size
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                const label = context.label || '';
-                                const value = context.raw || 0;
-                                return `${label}: ${value}%`;
-                            }
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: "Team Ranking Overview"
-                    }
-                },
-                animation: {
-                    duration: 1500,
-                    easing: 'easeOutBounce'
-                }
-            }
-        });
-    </script>
-    </script>
 </body>
 
 </html>

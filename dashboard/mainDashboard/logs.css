@@ -1,0 +1,49 @@
+main hr {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--secondaryColour);
+}
+
+/* Style for main grid container */
+.mainTitleBox {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 5 columns */
+    gap: 10px;
+}
+
+/* Style for each grid item (box) */
+.childMainTitleBox {
+    background-color: var(--secondaryColour);
+    color: var(--hText2);
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    grid-column: span 1;
+}
+
+.contentMainTitleBox {
+    background-color: var(--secondaryColour);
+    color: var(--hText2);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 900px) {
+}
