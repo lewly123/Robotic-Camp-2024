@@ -6,13 +6,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/fireba
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID
-  };
+  apiKey: "AIzaSyDh3WYkuVQ-Bwd_3mM3zHqQead-yjNbKPA",
+  authDomain: "roboticcamp2024.firebaseapp.com",
+  projectId: "roboticcamp2024",
+  storageBucket: "roboticcamp2024.appspot.com",
+  messagingSenderId: "96247026145",
+  appId: "1:96247026145:web:cda297740ea82f117202a0"
+};
+// const firebaseConfig = {
+//   apiKey: import.meta.env.VITE_API_KEY,
+//   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+//   projectId: import.meta.env.VITE_PROJECT_ID,
+//   storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+//   messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+//   appId: import.meta.env.VITE_APP_ID
+// };
 
+console.log(firebaseConfig); // Debug to confirm values
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

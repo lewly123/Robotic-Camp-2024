@@ -8,20 +8,50 @@ export function checkLoginStatus() {
     return sessionStorage.getItem("loggedInUserId") !== null;
 }
 
+// export function updateUI(user) {
+//     const loginButton = document.getElementById("loginButton");
+//     const dropdown = document.querySelector(".dropdown-content"); // Dropdown for user profile info
+//     const userNameElement = document.querySelector(".name"); // User's name in the dropdown
+//     const userEmailElement = document.querySelector(".email"); // User's email in the dropdown
+
+//     if (user) {
+//         // Hide login button and show dropdown profile
+//         loginButton.style.display = "none";
+//         dropdown.style.display = "block";
+
+//         // Update profile info in the dropdown
+//         userNameElement.innerText = user.displayName || "User";
+//         userEmailElement.innerText = user.email;
+//     } else {
+//         // Show login button and hide dropdown profile
+//         loginButton.style.display = "block";
+//         dropdown.style.display = "none";
+
+//         // Clear profile info
+//         userNameElement.innerText = "";
+//         userEmailElement.innerText = "";
+//     }
+// }
 export function updateUI(user) {
     const loginButton = document.getElementById("loginButton");
-    const dropdown = document.querySelector(".dropdown-content"); // Dropdown for user profile info
+    const dropdown = document.querySelector(".dropdown"); // Dropdown for user profile info
     const userNameElement = document.querySelector(".name"); // User's name in the dropdown
-    const userEmailElement = document.querySelector(".email"); // User's email in the dropdown
+    // Ensure elements exist
+    if (!loginButton || !dropdown || !userNameElement) {
+        console.error("UI elements not found!");
+        return;
+    }
 
-    if (user) {
+    if (user && typeof user === "object") {
         // Hide login button and show dropdown profile
         loginButton.style.display = "none";
-        dropdown.style.display = "block";
+        dropdown.style.display = "inline-block";
 
         // Update profile info in the dropdown
         userNameElement.innerText = user.displayName || "User";
-        userEmailElement.innerText = user.email;
+
+        // Optionally store in localStorage
+        localStorage.setItem("loggedInUserId", user.uid);
     } else {
         // Show login button and hide dropdown profile
         loginButton.style.display = "block";
@@ -29,7 +59,9 @@ export function updateUI(user) {
 
         // Clear profile info
         userNameElement.innerText = "";
-        userEmailElement.innerText = "";
+
+        // Remove from localStorage
+        localStorage.removeItem("loggedInUserId");
     }
 }
 
@@ -90,41 +122,116 @@ export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, 
 //         });
 // }
 
-export function login(signInWithEmailAndPassword, auth, db, setDoc, doc, userEmail, userPassword) {
-    signInWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-            const user = userCredential.user;
+// export function login(signInWithEmailAndPassword, auth, db, setDoc, doc, userEmail, userPassword) {
+//     signInWithEmailAndPassword(auth, userEmail, userPassword)
+//         .then((userCredential) => {
+//             const user = userCredential.user;
 
-            // Store logged-in user's ID
-            localStorage.setItem('loggedInUserId', user.uid);
+//             // Store logged-in user's ID
+//             localStorage.setItem('loggedInUserId', user.uid);
 
-            // Call UI update
-            updateUI(user);
+//             // Call UI update
+//             updateUI(user);
 
-            console.log("User signed in: ", user);
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+//             console.log("User signed in: ", user);
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
 
-            console.error("Error signing in: ", errorMessage);
-            Notification(errorMessage, "loginMessage");
-        });
+//             console.error("Error signing in: ", errorMessage);
+//             Notification(errorMessage, "loginMessage");
+//         });
+// }
+
+import { setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+export async function login(signInWithEmailAndPassword, auth, db, collection, query, where, getDocs, userInput, userPassword) {
+    try {
+        await setPersistence(auth, browserLocalPersistence); // Ensures session persists
+
+        let userEmail = userInput;
+
+        // Check if input is a username
+        if (!userInput.includes("@")) {
+            const usersRef = collection(db, "users");
+            const q = query(usersRef, where("username", "==", userInput));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                const userDoc = querySnapshot.docs[0];
+                userEmail = userDoc.data().email;
+                console.log("Resolved username to email:", userEmail);
+            } else {
+                throw new Error("Username not found.");
+            }
+        }
+
+        const userCredential = await signInWithEmailAndPassword(auth, userEmail, userPassword);
+        const user = userCredential.user;
+        updateUI(user);
+
+        // Store user's ID or other details if necessary
+        console.log("User signed in:", user);
+
+    } catch (error) {
+        console.error("Error signing in:", error.message);
+    }
 }
 
+// export async function login(signInWithEmailAndPassword, auth, db, collection, query, where, getDocs, userInput, userPassword) {
+//     try {
+//         let userEmail = userInput; // Default: assume input is an email
 
-logoutButton.addEventListener('click', () => {
-    const auth = getAuth();
+//         // Check if the input is a username
+//         if (!userInput.includes("@")) {
+//             console.log("Checking for username...");
 
-    // Clear stored user ID
-    localStorage.removeItem('loggedInUserId');
+//             const usersRef = collection(db, "users"); // Firestore 'users' collection
+//             const q = query(usersRef, where("username", "==", userInput));
+//             const querySnapshot = await getDocs(q);
 
-    signOut(auth)
-        .then(() => {
-            console.log("User logged out");
-            updateUI(null); // Update the UI to show the login button again
-        })
-        .catch((error) => {
-            console.error("Error signing out: ", error);
-        });
-});
+//             if (!querySnapshot.empty) {
+//                 // Username found, get the corresponding email
+//                 const userDoc = querySnapshot.docs[0];
+//                 userEmail = userDoc.data().email;
+//                 console.log("Resolved username to email: ", userEmail);
+//             } else {
+//                 throw new Error("Username not found.");
+//             }
+//         }
+
+//         // Sign in using the resolved email
+//         const userCredential = await signInWithEmailAndPassword(auth, userEmail, userPassword);
+//         const user = userCredential.user;
+
+//         // Store logged-in user's ID
+//         localStorage.setItem('loggedInUserId', user.uid);
+
+//         // Update the UI
+//         updateUI(user);
+
+//         console.log("User signed in: ", user);
+
+//     } catch (error) {
+//         console.error("Error signing in: ", error.message);
+//         Notification(error.message, "loginMessage");
+//     }
+// }
+
+
+
+// logoutButton.addEventListener('click', () => {
+//     const auth = getAuth();
+
+//     // Clear stored user ID
+//     localStorage.removeItem('loggedInUserId');
+
+//     signOut(auth)
+//         .then(() => {
+//             console.log("User logged out");
+//             updateUI(null); // Update the UI to show the login button again
+//         })
+//         .catch((error) => {
+//             console.error("Error signing out: ", error);
+//         });
+// });
