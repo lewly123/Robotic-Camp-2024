@@ -84,6 +84,7 @@ export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, 
                 .then(() => {
                     // window.location.href = "main.html";
                     console.log("Success send data to docs")
+                    window.location.href = "https://roboticcamp2024.web.app/";
                 })
                 .catch((error) => {
                     console.error("Error writing document", error);
@@ -172,6 +173,8 @@ export async function login(signInWithEmailAndPassword, auth, db, collection, qu
 
         // Store user's ID or other details if necessary
         console.log("User signed in:", user);
+        
+        window.location.href = "https://roboticcamp2024.web.app/";
 
     } catch (error) {
         console.error("Error signing in:", error.message);

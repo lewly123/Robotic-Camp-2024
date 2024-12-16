@@ -1,5 +1,5 @@
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
-import { updateUI } from "/function";
+import { updateUI } from "./function.js";
 
 console.log("2");
 // Get the logout button element
