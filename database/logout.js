@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     updateUI();
 
                     // Redirect to the homepage or login page
-                    window.location.href = "https://roboticcamp2024.web.app/";
+                    window.location.href = "https://solstice-salvation.web.app/";
                 })
                 .catch((error) => {
                     console.error("Error during logout: ", error.message);
