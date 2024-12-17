@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("No user is logged in.");
 
             // Show logged-out UI
-            loginButton.style.display = "block";
+            loginButton.style.display = "inline-block";
             dropdown.style.display = "none";
         }
     });
