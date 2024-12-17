@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script type="module" src="../../database/bypass.js" defer></script>
+    <script type="module" src="../../database/teaminfo.js" defer></script>
     <link rel="stylesheet" href="../../global/fonts.css" defer>
     <link rel="stylesheet" href="../../global/config.css" defer>
     <link rel="stylesheet" href="../globalDashboard/dashboard.css" defer>
@@ -118,58 +119,7 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const xValues = ["Team #1", "Unknown"];
-        const yValues = [10, 90];
-        const barColors = ["#00aba9", "#b91d47"];
-
-        const ctx = document.getElementById("Ranking").getContext("2d");
-        new Chart(ctx, {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: barColors,
-                    borderWidth: 0, // Remove white border
-                    data: yValues,
-                    hoverOffset: 15 // Hover effect
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'bottom', // Legend on the right
-                        labels: {
-                            usePointStyle: true, // Use circular markers for labels
-                            boxWidth: 10, // Adjust marker size
-                            color: "#8DAEAD"
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                const label = context.label || '';
-                                const value = context.raw || 0;
-                                return `${label}: ${value}%`;
-                            }
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: "Team Ranking Overview",
-                        color: "#8DAEAD"
-                    }
-                },
-                animation: {
-                    duration: 1500,
-                    easing: 'easeOutBounce'
-                }
-            }
-        });
-    </script>
-    </script>
+    <script type="module" src="../globalDashboard/dougnut.js" defer></script>
 </body>
 
 </html>

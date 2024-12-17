@@ -116,3 +116,32 @@ export async function login(signInWithEmailAndPassword, auth, db, collection, qu
         console.error("Error signing in:", error.message);
     }
 }
+
+import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+// To fetch all documents in the teamsData collection:
+// export async function fetchTeamsData(db) {
+//     const querySnapshot = await getDocs(collection(db, "teamsData"));
+//     querySnapshot.forEach((doc) => {
+//         console.log(`Document ID: ${doc.id}`, doc.data());
+//     });
+// }
+export async function fetchTeamsData(db) {
+    const teamsCollectionRef = collection(db, "teamsData");
+    const snapshot = await getDocs(teamsCollectionRef);
+
+    const teamsData = {};
+    snapshot.forEach(doc => {
+        teamsData[doc.id] = doc.data();
+    });
+    
+    console.log(teamsData);
+    return teamsData;
+}
+
+// To fetch the TeamInfo subcollection under a specific team document
+export async function fetchTeamInfo(db, teamId) {
+    const querySnapshot = await getDocs(collection(db, `teamsData/${teamId}/TeamInfo`));
+    querySnapshot.forEach((doc) => {
+        console.log(`Subcollection Document ID: ${doc.id}`, doc.data());
+    });
+}
