@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const userEmail = document.getElementById("emailR").value;
         const userPassword = document.getElementById("userPasswordR").value;
 
-        register(createUserWithEmailAndPassword, auth, db, setDoc, doc, userId, userEmail, userPassword);
+        register(signInWithEmailAndPassword, createUserWithEmailAndPassword, auth, db, setDoc, doc, userId, userEmail, userPassword);
     });
 
     // Login user
