@@ -54,7 +54,7 @@ export function updateUI(user) {
         localStorage.setItem("loggedInUserId", user.uid);
     } else {
         // Show login button and hide dropdown profile
-        loginButton.style.display = "block";
+        loginButton.style.display = "inline-block";
         dropdown.style.display = "none";
 
         // Clear profile info
@@ -67,7 +67,7 @@ export function updateUI(user) {
 
 
 // Firebase Function
-export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, userId, userEmail, userPassword) {
+export async function register(signInWithEmailAndPassword, createUserWithEmailAndPassword, auth, db, setDoc, doc, userId, userEmail, userPassword) {
     createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then((userCredential) => {
             // Signed up 
@@ -81,9 +81,13 @@ export function register(createUserWithEmailAndPassword, auth, db, setDoc, doc, 
             // Write to Firestore
             const docRef = doc(db, "users", user.uid);
             setDoc(docRef, userData)
-                .then(() => {
+                .then(async () => {
                     // window.location.href = "main.html";
-                    console.log("Success send data to docs")
+                    console.log("Success send data to docs");
+                    const userCredential = await signInWithEmailAndPassword(auth, userEmail, userPassword);
+                    const user = userCredential.user;
+
+                    localStorage.setItem("loggedInUserId", user.uid);
                     window.location.href = "https://solstice-salvation.web.app/";
                 })
                 .catch((error) => {
@@ -173,7 +177,7 @@ export async function login(signInWithEmailAndPassword, auth, db, collection, qu
 
         // Store user's ID or other details if necessary
         console.log("User signed in:", user);
-        
+
         window.location.href = "https://solstice-salvation.web.app/";
 
     } catch (error) {
